@@ -1,45 +1,64 @@
-# One Server Web Infrastructure for <www.foobar.com>
+# One-Server Web Infrastructure for <www.foobar.com>
+
+## One-Server Web Infrastructure
+
+## Infrastructure Diagram
+
+![Alt text](./0-simple_web_stack.png)
+
+### Infrastructure Components
+
+### 1. Server (IP: 8.8.8.8)
+
+A single machine hosting all components of the web application.
+
+### 2. Domain Name ([foobar.com](http://foobar.com))
+
+Human-readable address for the website. The www record in [www.foobar.com](http://www.foobar.com) is typically a CNAME record pointing to the domain's A record.
+
+### 3. Web Server (Nginx)
+
+Handles HTTP requests, serves static content, and acts as a reverse proxy for dynamic content.
+
+### 4. Application Server
+
+Executes the business logic, processes dynamic content requests, and interacts with the database.
+
+### 5. Application Files
+
+The actual code base of the website/application.
+
+### 6. Database (MySQL)
+
+Stores and manages the website's data.
 
 ## User Access Flow
 
-Imagine a user wants to access the website <www.foobar.com>. Here's what happens:
+When a user wants to access [www.foobar.com](http://www.foobar.com):
 
-- The user types <www.foobar.com> into their web browser.
-- The user's computer sends a DNS query to resolve <www.foobar.com>.
-- The DNS server returns the IP address 8.8.8.8, which is associated with <www.foobar.com>.
-- The user's browser sends an HTTP request to 8.8.8.8.
-- The web server (Nginx) on the server receives the request.
-- Nginx processes the request, potentially passing it to the application server.
-- The application server executes the necessary code, possibly interacting with the MySQL database.
-- The server sends back an HTTP response to the user's browser.
-- The user's browser renders the received web page.
+1. User types [www.foobar.com](http://www.foobar.com) into their web browser.
+2. User's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
+3. DNS server returns the IP address 8.8.8.8.
+4. User's browser sends an HTTP request to 8.8.8.8.
+5. Nginx receives and processes the request.
+6. Application server executes necessary code, potentially interacting with MySQL.
+7. Server sends back an HTTP response.
+8. User's browser renders the received web page.
 
-## Infrastructure Components
+## Communication Protocol
 
-1. Server (IP: 8.8.8.8)
-A server is a computer or system that provides resources, data, services, or programs to other computers, known as clients, over a network. In this case, it's a single machine hosting all components of our web application.
-2. Domain Name ([foobar.com](http://foobar.com))
-The domain name serves as a human-readable address for websites. It's easier to remember than an IP address. The www record in [www.foobar.com](http://www.foobar.com) is typically a CNAME (Canonical Name) DNS record type, which is an alias pointing to the domain's A record.
-3. Web Server (Nginx)
-The web server handles HTTP requests from clients. It serves static content directly and acts as a reverse proxy for dynamic content, forwarding requests to the application server.
-4. Application Server
-The application server executes the business logic of the web application. It processes dynamic content requests, interacts with the database, and generates responses.
-5. Application Files
-This is the actual code base of the website/application, typically written in languages like PHP, Python, or Ruby.
-6. Database (MySQL)
-The database stores and manages the website's data. It handles data storage, retrieval, and management tasks for the application.
-Communication Protocol
-The server communicates with the user's computer using the HTTP (Hypertext Transfer Protocol) over the internet.
-
-## Infrastructure Diagram
-    
-![alt text](image.png)
+The server communicates with the user's computer using HTTP over the internet.
 
 ## Limitations of This Infrastructure
 
-1. Single Point of Failure (SPOF)
-Since all components are on a single server, if it fails, the entire website becomes inaccessible.
-2. Maintenance Downtime
-Any maintenance requiring a server restart (like deploying new code or updating the web server) will result in website downtime.
-3. Scalability Issues
-This setup cannot handle large amounts of incoming traffic effectively. It lacks the ability to distribute load across multiple servers.
+### 1. Single Point of Failure (SPOF)
+
+All components are on a single server. If it fails, the entire website becomes inaccessible.
+
+### 2. Maintenance Downtime
+
+Any maintenance requiring a server restart will result in website downtime.
+
+### 3. Scalability Issues
+
+This setup cannot handle large amounts of incoming traffic effectively. It lacks the ability to distribute load across multiple servers
