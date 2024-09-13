@@ -4,6 +4,21 @@
 
 ![Alt text](./2-secured_and_monitored_web_infrastructure.png)
 
+## User Access Flow
+
+Imagine a user wants to access the website <www.foobar.com>. Here's what happens:
+
+    - The user types [www.foobar.com](http://www.foobar.com) into their web browser.
+    - The user's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
+    - The DNS server returns the IP address of the load balancer.
+    - The user's browser sends an HTTPS request to the load balancer's IP address.
+    - The load balancer distributes the request to one of the three servers.
+    - The web server (Nginx) on the selected server receives the request.
+    - Nginx processes the request, potentially passing it to the application server.
+    - The application server executes the necessary code, possibly interacting with the MySQL database.
+    - The server sends back an HTTPS response to the user's browser via the load balancer.
+    - The user's browser renders the received web page.
+
 ## Infrastructure Components
 
 ### 1. Servers (3)
@@ -29,21 +44,6 @@ Centralized database for storing and managing website data.
 ### 6. Monitoring Clients (3)
 
 One on each server to collect performance and health data.
-
-## User Access Flow
-
-Imagine a user wants to access the website <www.foobar.com>. Here's what happens:
-
-    - The user types [www.foobar.com](http://www.foobar.com) into their web browser.
-    - The user's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
-    - The DNS server returns the IP address of the load balancer.
-    - The user's browser sends an HTTPS request to the load balancer's IP address.
-    - The load balancer distributes the request to one of the three servers.
-    - The web server (Nginx) on the selected server receives the request.
-    - Nginx processes the request, potentially passing it to the application server.
-    - The application server executes the necessary code, possibly interacting with the MySQL database.
-    - The server sends back an HTTPS response to the user's browser via the load balancer.
-    - The user's browser renders the received web page.
 
 ## Specifics of the Infrastructure
 
