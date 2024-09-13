@@ -6,6 +6,19 @@
 
 ![Alt text](./0-simple_web_stack.png)
 
+## User Access Flow
+
+When a user wants to access [www.foobar.com](http://www.foobar.com):
+
+1. User types [www.foobar.com](http://www.foobar.com) into their web browser.
+2. User's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
+3. DNS server returns the IP address 8.8.8.8.
+4. User's browser sends an HTTP request to 8.8.8.8.
+5. Nginx receives and processes the request.
+6. Application server executes necessary code, potentially interacting with MySQL.
+7. Server sends back an HTTP response.
+8. User's browser renders the received web page.
+
 ### Infrastructure Components
 
 ### 1. Server (IP: 8.8.8.8)
@@ -31,19 +44,6 @@ The actual code base of the website/application.
 ### 6. Database (MySQL)
 
 Stores and manages the website's data.
-
-## User Access Flow
-
-When a user wants to access [www.foobar.com](http://www.foobar.com):
-
-1. User types [www.foobar.com](http://www.foobar.com) into their web browser.
-2. User's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
-3. DNS server returns the IP address 8.8.8.8.
-4. User's browser sends an HTTP request to 8.8.8.8.
-5. Nginx receives and processes the request.
-6. Application server executes necessary code, potentially interacting with MySQL.
-7. Server sends back an HTTP response.
-8. User's browser renders the received web page.
 
 ## Communication Protocol
 
