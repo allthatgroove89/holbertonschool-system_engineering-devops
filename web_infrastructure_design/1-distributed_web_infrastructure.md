@@ -45,21 +45,6 @@ This is the actual code base of the website/application, typically written in la
 
 The database stores and manages the website's data. It's set up in a Primary-Replica (Master-Slave) cluster for data redundancy and improved read performance.
 
-## User Access Flow
-
-Imagine a user wants to access the website <www.foobar.com>. Here's what happens:
-
-    - The user types [www.foobar.com](http://www.foobar.com) into their web browser.
-    - The user's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
-    - The DNS server returns the IP address of the load balancer.
-    - The user's browser sends an HTTP request to the load balancer's IP address.
-    - The load balancer distributes the request to one of the two servers.
-    - The web server (Nginx) on the selected server receives the request.
-    - Nginx processes the request, potentially passing it to the application
-    - The application server executes the necessary code, possibly interacting with the MySQL database (either Primary or Replica).
-    - The server sends back an HTTP response to the user's browser via the load balancer.
-    - The user's browser renders the received web page.
-
 ## Communication Protocol
 
 The servers communicate with the user's computer using the HTTP (Hypertext Transfer Protocol) over the internet.
