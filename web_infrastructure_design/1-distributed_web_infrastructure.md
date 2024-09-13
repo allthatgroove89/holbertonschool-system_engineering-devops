@@ -8,8 +8,8 @@ USER ACCESS FLOW
 
 Imagine a user wants to access the website <www.foobar.com>. Here's what happens:
 
-    - The user types [www.foobar.com](http://www.foobar.com) into their web browser.
-    - The user's computer sends a DNS query to resolve [www.foobar.com](http://www.foobar.com).
+    - The user types <www.foobar.com> into their web browser.
+    - The user's computer sends a DNS query to resolve <www.foobar.com>.
     - The DNS server returns the IP address of the load balancer.
     - The user's browser sends an HTTP request to the load balancer's IP address.
     - The load balancer distributes the request to one of the two servers.

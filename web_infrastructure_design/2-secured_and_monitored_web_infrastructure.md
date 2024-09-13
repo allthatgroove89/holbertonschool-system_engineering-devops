@@ -6,6 +6,16 @@
 
 ## User Access Flow
 
+- A user types <www.foobar.com> in their web browser and presses Enter.
+- The browser initiates a DNS lookup to resolve <www.foobar.com> to its corresponding IP address.
+- Load Balancer uses the SSL Certificate to establish a secure connection with the user.
+- Load Balancer distributes the request to one of the three servers based on load-balancing rules.
+- Request passes through the server’s Firewall, ensuring it meets security rules.
+- Web Server processes the request and forwards it to the Application Server.
+- Application Server processes data, interacting with the MySQL Database as needed.
+- The server sends the response back through the Load Balancer to the user.
+- Monitoring Clients on each server collect performance data for real-time analysis.
+
 ## Infrastructure Components
 
 ### 1. Servers (3)
